@@ -1,6 +1,6 @@
 # Interactive Desktop Environment
 
-<img src="https://private-user-images.githubusercontent.com/24913656/344487626-7637ab0e-d797-4b94-be11-7ad73d672013.png" alt="Banner" style="width:100%;">
+<img src="https://private-user-images.githubusercontent.com/24913656/344487626-7637ab0e-d797-4b94-be11-7ad73d672013.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTk3NzMzNDgsIm5iZiI6MTcxOTc3MzA0OCwicGF0aCI6Ii8yNDkxMzY1Ni8zNDQ0ODc2MjYtNzYzN2FiMGUtZDc5Ny00Yjk0LWJlMTEtN2FkNzNkNjcyMDEzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjMwVDE4NDQwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU4YjY0NzlhZWEwZTBiYTRlOTE4Zjg1OGNjNWRhMzEwYmJkMTI5MjQ2YTkzZTBkZTlkOTBjMDA5MjljMzQxZTUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.mdazEo38Dwxad9Sd_GEvrq3ZciXdVL2oK-7hLOJWBkY" alt="Banner" style="width:100%;">
 
 ## Overview
 The Cyber-Consult Desktop is an interactive web-based desktop environment mimicking the appearance and functionality of a traditional operating system desktop. This project includes a customizable desktop background, interactive desktop icons, draggable and resizable application windows, and a functional taskbar with a start menu and clock. The apps are loaded from Websim.
