@@ -37,6 +37,8 @@ The Cyber-Consult Desktop is an interactive web-based desktop environment mimick
 1. Clone or download the repository to your local machine.
 2. Open the `index.html` file in any web browser to start using the Cyber-Consult Desktop.
 
+## Demo
+
 ## Contributing
 If you wish to contribute to this project, please fork the repository and submit a pull request with your proposed changes.
 
