@@ -1,0 +1,363 @@
+<html><head>
+<title>Cyber-Consult Desktop</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Tahoma', sans-serif;
+  }
+  #desktop {
+    background-image: url('https://d7hftxdivxxvm.cloudfront.net/?quality=80&resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F2RNK1P0BYVrSCZEy_Sd1Ew%252F3417757448_4a6bdf36ce_o.jpg&width=910');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  #taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-color: rgba(0, 85, 234, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #start-button {
+    width: 100px;
+    height: 28px;
+    background-color: rgba(60, 145, 64, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 2px;
+    font-weight: bold;
+    border-radius: 2px;
+  }
+  #start-menu {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #0A246A;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+  .menu-item {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .menu-item:hover {
+    background-color: #316AC5;
+    color: white;
+  }
+  #clock {
+    color: white;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .desktop-icon {
+    position: absolute;
+    width: 64px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .desktop-icon img {
+    width: 32px;
+    height: 32px;
+  }
+  .desktop-icon span {
+    display: block;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .window {
+    position: absolute;
+    min-width: 200px;
+    min-height: 150px;
+    background-color: rgba(236, 233, 216, 0.9);
+    border: 1px solid #0A246A;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    display: none;
+    resize: both;
+    overflow: auto;
+  }
+  .window-header {
+    background-color: rgba(10, 36, 106, 0.9);
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+  }
+  .window-controls {
+    display: flex;
+  }
+  .window-button {
+    width: 16px;
+    height: 16px;
+    margin-left: 2px;
+    cursor: pointer;
+    background-color: #D4D0C8;
+    border: 1px solid #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+  }
+  .window-content {
+    height: calc(100% - 30px);
+    overflow: hidden;
+  }
+  .window-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #0A246A;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+  }
+</style>
+</head>
+<body>
+<div id="desktop">
+  <div class="desktop-icon" id="game-of-life-icon" style="top: 20px; left: 20px;">
+    <img src="https://icon-library.com/images/game-of-life-icon/game-of-life-icon-29.jpg" alt="Game of Life">
+    <span>Game of Life</span>
+  </div>
+  <div class="desktop-icon" id="story-generator-icon" style="top: 120px; left: 20px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3330/3330314.png" alt="Infinite Story Generator">
+    <span>Infinite Story Generator</span>
+  </div>
+  <div class="desktop-icon" id="asteroids-icon" style="top: 220px; left: 20px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/2949/2949874.png" alt="Asteroids">
+    <span>Asteroids</span>
+  </div>
+  <div class="desktop-icon" id="webcalc-pro-icon" style="top: 320px; left: 20px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891175.png" alt="WebCalc Pro">
+    <span>WebCalc Pro</span>
+  </div>
+  <div class="desktop-icon" id="linkedin-profile-icon" style="top: 420px; left: 20px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn Profile">
+    <span>Contact Joe Shenouda</span>
+  </div>
+  <div id="taskbar">
+    <div id="start-button">Start</div>
+    <div id="clock"></div>
+  </div>
+  <div id="start-menu">
+    <div class="menu-item">Programs</div>
+    <div class="menu-item">Documents</div>
+    <div class="menu-item">Settings</div>
+    <div class="menu-item">Search</div>
+    <div class="menu-item">Help</div>
+    <div class="menu-item">Run...</div>
+    <div class="menu-item">Log Off...</div>
+    <div class="menu-item">Turn Off Computer...</div>
+  </div>
+  <div id="game-of-life-window" class="window">
+    <div class="window-header">
+      <span>Game of Life</span>
+      <div class="window-controls">
+        <div class="window-button minimize">_</div>
+        <div class="window-button maximize">□</div>
+        <div class="window-button close">✖</div>
+      </div>
+    </div>
+    <div class="window-content">
+      <iframe src="about:blank" data-src="https://websim.ai/@silvergalaxy94724932/the-game-of-life-digital-evolution-simulator"></iframe>
+    </div>
+    <div class="resize-handle"></div>
+  </div>
+  <div id="story-generator-window" class="window">
+    <div class="window-header">
+      <span>Infinite Story Generator</span>
+      <div class="window-controls">
+        <div class="window-button minimize">_</div>
+        <div class="window-button maximize">□</div>
+        <div class="window-button close">✖</div>
+      </div>
+    </div>
+    <div class="window-content">
+      <iframe src="about:blank" data-src="https://websim.ai/@silvergalaxy94724932/infinite-story-generator-choose-your-own-adventure"></iframe>
+    </div>
+    <div class="resize-handle"></div>
+  </div>
+  <div id="asteroids-window" class="window">
+    <div class="window-header">
+      <span>Asteroids</span>
+      <div class="window-controls">
+        <div class="window-button minimize">_</div>
+        <div class="window-button maximize">□</div>
+        <div class="window-button close">✖</div>
+      </div>
+    </div>
+    <div class="window-content">
+      <iframe src="about:blank" data-src="https://websim.ai/@silvergalaxy94724932/asteroids-classic-space-shooter-colorful-glowing-e"></iframe>
+    </div>
+    <div class="resize-handle"></div>
+  </div>
+  <div id="webcalc-pro-window" class="window">
+    <div class="window-header">
+      <span>WebCalc Pro</span>
+      <div class="window-controls">
+        <div class="window-button minimize">_</div>
+        <div class="window-button maximize">□</div>
+        <div class="window-button close">✖</div>
+      </div>
+    </div>
+    <div class="window-content">
+      <iframe src="about:blank" data-src="https://websim.ai/@silvergalaxy94724932/webcalc-pro-advanced-scientific-calculator-dark-mo"></iframe>
+    </div>
+    <div class="resize-handle"></div>
+  </div>
+  <div id="linkedin-profile-window" class="window">
+    <div class="window-header">
+      <span>Contact Joe Shenouda</span>
+      <div class="window-controls">
+        <div class="window-button minimize">_</div>
+        <div class="window-button maximize">□</div>
+        <div class="window-button close">✖</div>
+      </div>
+    </div>
+    <div class="window-content">
+      <iframe src="about:blank" data-src="https://www.linkedin.com/in/josephshenouda/"></iframe>
+    </div>
+    <div class="resize-handle"></div>
+  </div>
+</div>
+
+<script>
+  const startButton = document.getElementById('start-button');
+  const startMenu = document.getElementById('start-menu');
+  const desktop = document.getElementById('desktop');
+  const clock = document.getElementById('clock');
+  const gameOfLifeIcon = document.getElementById('game-of-life-icon');
+  const gameOfLifeWindow = document.getElementById('game-of-life-window');
+  const storyGeneratorIcon = document.getElementById('story-generator-icon');
+  const storyGeneratorWindow = document.getElementById('story-generator-window');
+  const asteroidsIcon = document.getElementById('asteroids-icon');
+  const asteroidsWindow = document.getElementById('asteroids-window');
+  const webcalcProIcon = document.getElementById('webcalc-pro-icon');
+  const webcalcProWindow = document.getElementById('webcalc-pro-window');
+
+  startButton.addEventListener('click', () => {
+    if (startMenu.style.display === 'block') {
+      startMenu.style.display = 'none';
+    } else {
+      startMenu.style.display = 'block';
+    }
+  });
+
+  desktop.addEventListener('click', (e) => {
+    if (e.target !== startButton && e.target !== startMenu) {
+      startMenu.style.display = 'none';
+    }
+  });
+
+  function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    clock.textContent = `${hours}:${minutes} ${ampm}`;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  function setupWindow(icon, window) {
+    const header = window.querySelector('.window-header');
+    const closeButton = window.querySelector('.close');
+    const minimizeButton = window.querySelector('.minimize');
+    const maximizeButton = window.querySelector('.maximize');
+    const resizeHandle = window.querySelector('.resize-handle');
+    const iframe = window.querySelector('iframe');
+
+    icon.addEventListener('click', () => {
+      window.style.display = 'block';
+      if (iframe.src === 'about:blank') {
+        iframe.src = iframe.dataset.src;
+      }
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.style.display = 'none';
+      // We don't change the iframe src here, so the app state is preserved
+    });
+
+    minimizeButton.addEventListener('click', () => {
+      window.style.display = 'none';
+      // We don't change the iframe src here, so the app state is preserved
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      if (window.style.width === '100%' && window.style.height === '100%') {
+        window.style.width = '';
+        window.style.height = '';
+        window.style.top = '';
+        window.style.left = '';
+      } else {
+        window.style.width = '100%';
+        window.style.height = '100%';
+        window.style.top = '0';
+        window.style.left = '0';
+      }
+    });
+
+    let isDragging = false;
+    let isResizing = false;
+    let dragOffsetX, dragOffsetY;
+
+    header.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragOffsetX = e.clientX - window.offsetLeft;
+      dragOffsetY = e.clientY - window.offsetTop;
+    });
+
+    resizeHandle.addEventListener('mousedown', (e) => {
+      isResizing = true;
+      e.stopPropagation();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        window.style.left = (e.clientX - dragOffsetX) + 'px';
+        window.style.top = (e.clientY - dragOffsetY) + 'px';
+      } else if (isResizing) {
+        const newWidth = e.clientX - window.offsetLeft;
+        const newHeight = e.clientY - window.offsetTop;
+        window.style.width = newWidth + 'px';
+        window.style.height = newHeight + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      isResizing = false;
+    });
+  }
+
+  setupWindow(gameOfLifeIcon, gameOfLifeWindow);
+  setupWindow(storyGeneratorIcon, storyGeneratorWindow);
+  setupWindow(asteroidsIcon, asteroidsWindow);
+  setupWindow(webcalcProIcon, webcalcProWindow);
+</script>
+</body></html>
